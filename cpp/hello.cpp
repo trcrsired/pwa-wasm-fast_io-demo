@@ -8,7 +8,7 @@ namespace
 // Embed HTML using a UTF-8 raw string literal with char8_t
 inline constexpr ::fast_io::u8string_view html_strvw(
 u8R"abc(<section>
-  <h1>PWA fast_io Demo</h1>
+  <h1><a href="/">PWA fast_io Demo</a></h1>
   <p>This DOM fragment is generated from C++ ::fast_io::u8string and ::fast_io::u8string_view to test heap allocation.</p>
   <ul>
     <li>Fast</li>
