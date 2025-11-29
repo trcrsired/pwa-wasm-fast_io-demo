@@ -8,7 +8,7 @@ namespace
 // Embed HTML using a UTF-8 raw string literal with char8_t
 inline constexpr ::fast_io::u8string_view html_strvw(
 u8R"abc(<section>
-  <h1>PWA WASM Example</h1>
+  <h1>PWA fast_io Example</h1>
   <p>This DOM fragment is generated from C++ ::fast_io::u8string and ::fast_io::u8string_view to test heap allocation.</p>
   <ul>
     <li>Fast</li>
@@ -17,8 +17,8 @@ u8R"abc(<section>
   </ul>
   <p>
     Source code is available at
-    <a href="https://github.com/trcrsired/pwa-wasm-example" target="_blank">
-      github.com/trcrsired/pwa-wasm-example
+    <a href="https://github.com/trcrsired/pwa-wasm-fast_io-example" target="_blank">
+      https://github.com/trcrsired/pwa-wasm-fast_io-example
     </a>.
     <br>
     This project is licensed under the GNU General Public License v3.0.
