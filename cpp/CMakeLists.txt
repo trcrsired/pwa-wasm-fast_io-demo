@@ -21,10 +21,14 @@ if(FAST_IO_DIR)
     target_include_directories(hello.wasm PRIVATE "${FAST_IO_DIR}/include")
 endif()
 
-# Link options:
-# -nostartfiles: do not include default startup files
-# --export: explicitly export functions so they are visible in the final WASM
+# Linker options:
+# --export : explicitly mark functions as exports so they are accessible from JavaScript
+#   __wasm_call_ctors : runs all global/static constructors (initializes global state before use)
+#   __wasm_call_dtors : runs all global/static destructors and atexit handlers (cleans up resources)
+#   get_html_ptr / get_html_len : custom functions to expose the HTML buffer
 target_link_options(hello.wasm PRIVATE
+    -Wl,--export=__wasm_call_ctors
+    -Wl,--export=__wasm_call_dtors
     -Wl,--export=get_html_ptr
     -Wl,--export=get_html_len
 )

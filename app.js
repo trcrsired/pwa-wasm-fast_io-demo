@@ -9,9 +9,15 @@ async function loadWasm() {
   }
 
   try {
+    // Fetch the compiled WebAssembly binary
     const response = await fetch("hello.wasm");
+
+    // Create a linear memory object for the WASM instance
     const memory = new WebAssembly.Memory({ initial: 8 });
 
+    // Define the import object passed into the WASM module
+    // - Provide the memory under `env`
+    // - Override WASI's `proc_exit` so the page doesn't terminate
     const importObject = {
       env: { memory },
       wasi_snapshot_preview1: {
@@ -20,17 +26,36 @@ async function loadWasm() {
         }
       }
     };
+
+    // Instantiate the WASM module with streaming compilation
     const { instance } = await WebAssembly.instantiateStreaming(response, importObject);
 
+    // Grab the exported functions and memory from the instance
     const exports = instance.exports;
-  
-    exports._start();
-    const ptr = exports.get_html_ptr();
-    const len = exports.get_html_len();
 
-    const bytes = new Uint8Array(exports.memory.buffer, ptr, len);
-    const html = new TextDecoder("utf-8").decode(bytes);
+    let html;
 
+    // Run global/static constructors (normally done inside `_start`)
+    exports.__wasm_call_ctors();
+
+    try {
+      // Call exported functions to get pointer + length of the HTML buffer
+      const ptr = exports.get_html_ptr();
+      const len = exports.get_html_len();
+
+      // Create a typed view into WASM memory and decode it as UTF‑8
+      const bytes = new Uint8Array(exports.memory.buffer, ptr, len);
+      html = new TextDecoder("utf-8").decode(bytes);
+
+      // At this point, `html` contains the string produced by the WASM module
+    }
+    finally {
+      // Always run global destructors/cleanup (atexit, static dtors, etc.)
+      // This ensures resources are released even if an error was thrown above
+      exports.__wasm_call_dtors();
+    }
+
+    // `html` now holds the decoded string, safe to inject into the DOM
     // Inject into DOM
     document.getElementById("output").innerHTML = html;
   } catch (err) {
