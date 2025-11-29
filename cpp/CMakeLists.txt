@@ -25,8 +25,6 @@ endif()
 # -nostartfiles: do not include default startup files
 # --export: explicitly export functions so they are visible in the final WASM
 target_link_options(hello.wasm PRIVATE
-    -nostartfiles
-    -Wl,--no-entry
     -Wl,--export=get_html_ptr
     -Wl,--export=get_html_len
 )
