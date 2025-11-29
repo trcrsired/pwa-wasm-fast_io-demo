@@ -17,8 +17,8 @@ u8R"abc(<section>
   </ul>
   <p>
     Source code is available at
-    <a href="https://github.com/trcrsired/pwa-wasm-fast_io-example" target="_blank">
-      https://github.com/trcrsired/pwa-wasm-fast_io-example
+    <a href="https://github.com/trcrsired/pwa-wasm-fast_io-demo" target="_blank">
+      https://github.com/trcrsired/pwa-wasm-fast_io-demo
     </a>.
     <br>
     This project is licensed under the GNU General Public License v3.0.
