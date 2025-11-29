@@ -1,0 +1,17 @@
+{
+  "name": "PWA fast_io Demo",
+  "short_name": "PWA fast_io",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#317EFB",
+  "description": "A minimal Progressive Web App that loads a WebAssembly module compiled from C++ and displays Hello World with fast_io library.",
+  "icons": [
+    {
+      "src": "icon.webp",
+      "sizes": "512x512",
+      "type": "image/webp"
+    }
+  ]
+}

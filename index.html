@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PWA fast_io Demo</title>
+
+  <!-- PWA manifest and theme -->
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#317EFB">
+
+  <!-- Icons -->
+  <link rel="icon" type="image/webp" href="icon.webp">
+
+  <!-- Mobile scaling -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- WASM output will be injected here -->
+  <div id="output"></div>
+
+  <!-- WASM loader -->
+  <script src="app.js"></script>
+
+  <!-- Service worker register -->
+  <script src="sw-register.js"></script>
+</body>
+</html>
