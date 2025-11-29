@@ -1,8 +1,8 @@
 {
   "name": "PWA fast_io Demo",
   "short_name": "PWA fast_io",
-  "start_url": "./index.html",
-  "scope": "./",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#317EFB",
