@@ -1,4 +1,4 @@
-
+// Simple WebAssembly loader: fetches hello.wasm, runs constructors, calls exports, injects HTML into DOM
 
 async function loadWasm() {
   // Check if WebAssembly is supported
@@ -56,7 +56,6 @@ async function loadWasm() {
     }
 
     // `html` now holds the decoded string, safe to inject into the DOM
-    // Inject into DOM
     document.getElementById("output").innerHTML = html;
   } catch (err) {
     // Handle errors gracefully
