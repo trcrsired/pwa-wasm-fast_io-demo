@@ -3,14 +3,13 @@ const CACHE_VERSION = "v1";
 const CACHE_NAME = `wasm-fast_io-demo-cache-${CACHE_VERSION}`;
 
 const ASSETS = [
-  "./",                   // root (allows index resolution)
-  "./index.html",         // main page
-  "./app.js",             // WASM loader
-  "./sw-register.js",     // service worker registration
-  "./hello.wasm",         // WebAssembly binary
-  "./manifest.webmanifest", // PWA manifest
-  "./style.css",          // styles
-  "./icon.webp"           // app icon
+  "/",                   // root (allows index resolution)
+  "/app.js",             // WASM loader
+  "/sw-register.js",     // service worker registration
+  "/hello.wasm",         // WebAssembly binary
+  "/manifest.webmanifest", // PWA manifest
+  "/style.css",          // styles
+  "/icon.webp"           // app icon
 ];
 
 // Install: pre-cache essential assets
