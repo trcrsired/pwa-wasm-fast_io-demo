@@ -1,6 +1,6 @@
-# PWA WASM Example
+# PWA WASM fast_io Demo
 
-A progressive web app (PWA) demo that showcases **WebAssembly integration** with offline support.  
+A progressive web app (PWA) demo that showcases **WebAssembly integration** for fast_io library with offline support.  
 Developed by the author of this PWA Store.
 
 ---
