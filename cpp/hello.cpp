@@ -42,7 +42,3 @@ extern "C"
         return html_str.size(); // exclude null terminator
     }
 }
-
-int main()
-{
-}
