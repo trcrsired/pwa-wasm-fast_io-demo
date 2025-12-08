@@ -2,6 +2,7 @@
   "name": "PWA fast_io Demo",
   "short_name": "PWA fast_io",
   "start_url": "/",
+  "id": "/",
   "scope": "/",
   "display": "standalone",
   "background_color": "#ffffff",
